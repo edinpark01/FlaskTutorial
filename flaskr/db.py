@@ -29,9 +29,12 @@ def get_db():
 
     return g.db
 
+# ****************** Python functions that will run schema.sql SQL commands ******************
+#   init_db()
+#   init_db_command()
+
 
 def init_db():
-    """ Python functions that will run schema.sql SQL commands """
     db = get_db()
 
     with current_app.open_resource('schema.sql') as f:
@@ -65,3 +68,20 @@ def close_db(e=None):
 
     if db is not None:
         db.close()
+
+# ****************** Register with the Application ******************
+#   init_app()
+
+
+def init_app(app):
+    app.teardown_appcontext(close_db)
+    app.cli.add_command(init_db_command)
+
+    """
+    app.teardown_appcontext()   tells Flask to call that function when cleaning up after returning the response.
+    app.cli.add_command()       adds a new command that can be called with the flask command.
+
+    1.  Import and call this function from the factory. 
+    2.  Place the new code at the end of the factory function 
+    3.  Before returning the app.
+    """
