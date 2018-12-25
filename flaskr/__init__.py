@@ -2,6 +2,13 @@
 #
 #   1.  It will contain the application factory, AND
 #   2.  It tells Python that the flaskr directory should be treated as a package.
+#
+#   --------------------------------------------------------------------------------------------------------------------
+#   The project directory will contain:
+#
+#   flaskr/     a Python package containing your application code and files.
+#   tests/      a directory containing test modules
+#
 
 import os
 
@@ -10,9 +17,10 @@ from flask import Flask
 
 def create_app(test_config=None):
     # create and configure the app
-    # create_app is the application factory function.
+    # create_app is also known as "the application factory function."
 
     app = Flask(__name__, instance_relative_config=True)
+    print(" * ( Current Module Name ) __name__ [ ", __name__," ]")
     """
     app = Flask(__name__, instance_relative_config=True) creates the Flask instance.
         *   __name__ is the name of the current Python module. The app needs to know where it’s located to set up 
