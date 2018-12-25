@@ -35,3 +35,8 @@ request, and closed before the response is sent.
 In SQLite, data is stored in tables and columns. These need to be created before you can store and retrieve data. 
 Flaskr will store users in the user table, and posts in the post table. Create a file with the SQL commands needed 
 to create empty tables:
+
+###### Register with the Application
+The close_db and init_db_command functions need to be registered with the application instance, otherwise they
+won’t be used by the application. However, since you’re using a factory function, that instance isn’t available 
+when writing the functions. Instead, write a function that takes an application and does the registration.
