@@ -31,3 +31,7 @@ finished.
 In web applications this connection is typically tied to the request. It is created at some point when handling a 
 request, and closed before the response is sent.
 
+###### CREATE the tables
+In SQLite, data is stored in tables and columns. These need to be created before you can store and retrieve data. 
+Flaskr will store users in the user table, and posts in the post table. Create a file with the SQL commands needed 
+to create empty tables:
