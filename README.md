@@ -102,7 +102,7 @@ The url_for() function generates the URL to a view based on a name and arguments
 The name associated with a view is also called the endpoint, and by default it is the same as the name of the view 
 function. 
 
-<b>For example:</b>
+<b>For example:</b><br/>
 The hello() view that was added to the app factory earlier in the tutorial has the name <b>'hello'</b> and can
 be linked to with url_for('hello'). If it took an argument, which you will see later, it would be linked to using 
 url_for('hello', who='World').
