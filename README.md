@@ -85,3 +85,6 @@ When the user visits the /auth/register URL, the register view will:
 * Create the new user and go to the login page
 
 For now you will just write the view code.
+
+###### Login View
+This view follows the same pattern as the register view. 
