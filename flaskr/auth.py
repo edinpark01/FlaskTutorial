@@ -86,3 +86,43 @@ def register():
     # registration form should be shown. render_template() will render (provide) a template containing the HTML,
     # which you’ll write in the next step of the tutorial.
     return render_template('auth/register.html')
+
+
+@bp.route('/login', methods=('GET', 'POST'))
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        db = get_db()
+        error = None
+
+        # The user is queried first and stored in a variable for later use.
+        user = db.execute(
+            'SELECT * FROM user WHERE username = ?', username
+        ).fetchone()
+
+        if user is None:
+            error = 'Incorrect username'
+        elif not check_password_hash(user['password'], password):
+            # check_password_hash() hashes the submitted password in the same way as the stored hash and
+            # securely compares them. If they match, the password is valid.
+            error = 'Incorrect password'
+
+        if error is None:
+            # session is a dict that stores data across requests. When validation succeeds:
+            #   *   the user’s id is stored
+            #
+            # In a new session:
+            #   *   The data is stored in a cookie that is sent to the browser AND
+            #   *   The browser then sends it back with subsequent requests.
+            #
+            # Flask securely signs the data so that it can’t be tampered with.
+            session.clear()
+            session['user_id'] = user['id']
+
+            return redirect(url_for('index'))
+
+        flash(error)
+
+    return render_template('auth/login.html')
