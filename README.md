@@ -58,3 +58,21 @@ Initialized the database.
 ```
 
 There will now be a flaskr.sqlite file in the instance folder in your project.
+
+### Blueprints and Views
+A view function is the code you write to respond to requests to your applications.
+* Flask uses patterns to match the incoming request URL to the view that should handle it. 
+* The view returns data that Flask turns into an outgoing response.
+* Flask can also go the other direction and generate a URL to a view based on its name and arguments.
+
+###### Create a blueprint
+A <b>Blueprint</b> is a way to organize group of related views and other code. Rather than registering views and other 
+code directly with an application, they are registered with a blueprint. Then the blueprint is registered with the 
+application when its available in the factory function.
+
+Our app, Flaskr, will have two blueprints:
+1. One for authentication functions
+2. One for the blog posts functions
+The code for each blueprint will go in a separate module. 
+
+Since the blog needs to know about authentication, you will write the authentication one first. 
