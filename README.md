@@ -95,4 +95,17 @@ subsequent requests.
 
 ###### Required Authentication in Other Views
 Creating, editing, and deleting blog posts will require a user to be logged in. A decorator can be used to ckeck 
-this for each view it's applied to.  
+this for each view it's applied to.
+
+###### Endpoints and URLs
+The url_for() function generates the URL to a view based on a name and arguments. 
+The name associated with a view is also called the endpoint, and by default it is the same as the name of the view 
+function. 
+
+<b>For example:</b>
+The hello() view that was added to the app factory earlier in the tutorial has the name <b>'hello'</b> and can
+be linked to with url_for('hello'). If it took an argument, which you will see later, it would be linked to using 
+url_for('hello', who='World').
+
+When using a blueprint, the name of the blueprint is prepended to the name of the function, so the endpoint for the 
+login function you wrote above is 'auto.login' because you added it to the 'auto' blueprint.
