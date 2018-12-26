@@ -109,3 +109,31 @@ url_for('hello', who='World').
 
 When using a blueprint, the name of the blueprint is prepended to the name of the function, so the endpoint for the 
 login function you wrote above is 'auto.login' because you added it to the 'auto' blueprint.
+
+### Templates
+You've written the authentication views for your application, but if you are running the server and try to go to any 
+of the URLs, you will see a TemplateNotFound Error. 
+
+The reason why you are seeing this error is because the view are calling render_template(), but you haven't written 
+the templates yet. The templates files will be stored in the templates directory inside the flaskr package. 
+
+Templates are files that contain static data as well as placeholders for dynamic data. A template is rendered with 
+specific data to produce a final document. <b><i>Flask uses the [Jinja](http://jinja.pocoo.org/docs/2.10/templates/) 
+template library to render templates.</i></b>
+
+In your application, you will use templates to render HTML, which will display in the user's browser. In Flask,
+Jinja is configured to <i>autoescape</i> any data that is rendered in HTML templates. This means that it is safe to
+render user input; any characters they've entered that could mess with the HTML, such as < and > will be escaped with 
+safe values that look the same in the browser but don't cause unwanted effects. 
+
+Junja looks and behaves mostly like Python. Special delimiters are used to distinguish Jinja syntax from the static
+data in the template. 
+* Anything between {{ and }} is an expression that will be output to the final document. 
+* {% and %} denotes a control flow statement like if and for. 
+
+Unlike Python, blocks are denoted by start and end tags rather than indetentation since static text within a block 
+could change indentation. 
+
+###### The Base Layout
+Each page in the application will have the same basic layout around a different body. Instead of writing the entire HTML 
+structure in each template, each template will extend a base template and override specific sections. 
