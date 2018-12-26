@@ -76,3 +76,12 @@ Our app, Flaskr, will have two blueprints:
 The code for each blueprint will go in a separate module. 
 
 Since the blog needs to know about authentication, you will write the authentication one first. 
+
+###### The First View: Register
+When the user visits the /auth/register URL, the register view will:
+1. Return HTML with a form for them to fill out. 
+2. Once submitted it will validate the input and:
+* Show the form again with an error message OR
+* Create the new user and go to the login page
+
+For now you will just write the view code.
