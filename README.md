@@ -137,3 +137,6 @@ could change indentation.
 ###### The Base Layout
 Each page in the application will have the same basic layout around a different body. Instead of writing the entire HTML 
 structure in each template, each template will extend a base template and override specific sections. 
+
+The base template is directly in the <b>templates</b> directory. To keep the others organized, the templates for
+a blueprint will be placed in a directory with the same name as the blueprint. 
