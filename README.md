@@ -88,3 +88,7 @@ For now you will just write the view code.
 
 ###### Login View
 This view follows the same pattern as the register view. 
+
+###### Logout View                                          
+To log out, you need to remove the user id from the session. Then load_logged_in_user won't load a user on 
+subsequent requests.    
