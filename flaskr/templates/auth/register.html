@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="username">Username</label>
+    <input name="username" id="username" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    <input type="submit" value="Register">
+  </form>
+{% endblock %}
+
+<!--
+Reminder from base.html:
+    There are three blocks defines here that will be overridden in the other templates:
+
+    1.  {% block header %}  this is similar to tile but will change the title displayed on the page.
+    2.  {% block title %}   this will change the title displayed in the browser's tab and window title.
+    3.  {% block content %} this is where the content of each page goes, such as the login form or a blog post.
+
+{% extends 'base.html' %}   tells Jinja that this template should replace the blocks from the base template. All the
+                            rendered content must appear inside {% block %} tags that override blocks from the base
+                            template.
+
+A useful pattern used here is to place {% block title %} inside {% block header %}. This will set the title block and
+then output the value of it into the header block, so that both the window and page share the same title without
+writing it twice.
+
+The input tags are using the required attribute here. This tells the browser not to submit the form until those
+fields are filled in. If the user is using an older browser that doesn’t support that attribute, or if they are
+using something besides a browser to make requests, you still want to validate the data in the Flask view. It’s
+important to always fully validate the data on the server, even if the client does some validation as well.
+
+-->
