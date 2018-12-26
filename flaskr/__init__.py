@@ -1,3 +1,4 @@
+# coding: utf-8
 #   The __init__.py serves double duty:
 #
 #   1.  It will contain the application factory, AND
