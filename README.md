@@ -139,4 +139,16 @@ Each page in the application will have the same basic layout around a different 
 structure in each template, each template will extend a base template and override specific sections. 
 
 The base template is directly in the <b>templates</b> directory. To keep the others organized, the templates for
-a blueprint will be placed in a directory with the same name as the blueprint. 
+a blueprint will be placed in a directory with the same name as the blueprint.
+
+### Register A User
+Now that the authentication templates are written, you can register a user. Make sure the server is still running 
+(flask run if it’s not), then go to http://127.0.0.1:5000/auth/register.
+
+Try clicking the “Register” button without filling out the form and see that the browser shows an error message. 
+Try removing the required attributes from the register.html template and click “Register” again. Instead of the 
+browser showing an error, the page will reload and the error from flash() in the view will be shown.
+
+Fill out a username and password and you’ll be redirected to the login page. Try entering an incorrect username, 
+or the correct username and incorrect password. If you log in you’ll get an error because there’s no index view to 
+redirect to yet.
