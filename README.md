@@ -92,3 +92,7 @@ This view follows the same pattern as the register view.
 ###### Logout View                                          
 To log out, you need to remove the user id from the session. Then load_logged_in_user won't load a user on 
 subsequent requests.    
+
+###### Required Authentication in Other Views
+Creating, editing, and deleting blog posts will require a user to be logged in. A decorator can be used to ckeck 
+this for each view it's applied to.  
