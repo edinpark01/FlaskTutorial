@@ -134,7 +134,7 @@ def login():
 #
 # bp.before_app_first_request() - registers a function that runs before the view function, no matter what URL is
 # requested.
-@bp.before_app_first_request()
+@bp.before_app_request
 def load_logged_in_user():
     """
     Checks if a user id is stored in the session and gets that user's data from the database, storing it on g.user,
