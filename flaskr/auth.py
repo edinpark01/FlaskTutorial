@@ -14,6 +14,11 @@ This creates a Blueprint named 'auth'. Like the application object, the blueprin
 so __name__ is passed as the second argument. The url_prefix will be will be added to the beggining of all the URLs 
 associated with the blueprint.
 
-Import and register the blueprint from the factory using app.register_blueprint(). Place the new code at the end 
-of the factory function before returning the app.
+Further Instructions:
+1.  Import and register the blueprint from the factory using app.register_blueprint(). Place the new code at the end 
+    of the factory function before returning the app.
+
+Note: 
+The authentication blueprint will have views to register new users and to log in and log out.
+
 """
