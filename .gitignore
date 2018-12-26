@@ -1,3 +1,5 @@
 .idea/
 __pycache__/
 instance/
+docker-compose.yml
+flaskr/Dockerfile
