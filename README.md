@@ -152,3 +152,17 @@ browser showing an error, the page will reload and the error from flash() in the
 Fill out a username and password and you’ll be redirected to the login page. Try entering an incorrect username, 
 or the correct username and incorrect password. If you log in you’ll get an error because there’s no index view to 
 redirect to yet.
+
+### Static Files
+The authentication views and templates work, but they look very plain right now. Some CSS can be added to add style 
+to the HTML layout you constructed. The style won't change, so it's a static file rather than a template. 
+
+Flask automatically ads a static view that takes a path relative to the flask/static directory and server it. 
+The base.html template already has a link to the style.css file:
+``` 
+{{ url_for('static', filename='style.css') }}
+``` 
+
+Besides CSS, other types of static files might be files with JavaScript functions, or a logo image. They are all 
+placed under the flask/static directory and referenced with url_for('static', filename=' ... ').
+
