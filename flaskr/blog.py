@@ -21,3 +21,37 @@ def index():
     ).fetchall()
 
     return render_template('blog/index.html', posts=posts)
+
+
+# The create VIEW works the same as the auth register view.
+# Either the form is displayed, or the posted data is validated and the post is added to the database or an error
+# is shown
+#
+# The login_required DECORATOR you wrote earlier is used on the blog views. A user must be logged in to visit these
+# views, otherwise they will be redirected to the login page.
+@bp.route('/create', methods=('GET', 'POST'))
+@login_required
+def create():
+    if request.method == 'POST':
+        title = request.form['title']
+        body = request.form['body']
+        error = None
+
+        if not title:
+            error = 'Title is required.'
+
+        if error is not None:
+            flash(error)
+        else:
+            db = get_db()
+            db.execute(
+                'INSERT INTO post (title, body, author_id) '
+                'VALUES (?, ?, ?)',
+                (title, body, g.user['id'])
+            )
+            db.commit()
+            return redirect(url_for('blog.index'))
+
+        return render_template('blog/create.html')
+
+
