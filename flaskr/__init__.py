@@ -94,7 +94,21 @@ def create_app(test_config=None):
     print(" * Registering with application - blog Blueprint")
     from . import blog
     app.register_blueprint(blog.bp)
+    """
+    Unlike the auth blueprint, the blog blueprint does not have a url_prefix ( for auth it is /auth ). 
+    So the index view will be at /, the create view at /create, and so on. The blog is the main feature of Flask, so it 
+    makes sense that the blog index will be the main index. 
+    
+    However, the endpoint for the index view defined below will be blog.index. Some of the authentication views referred 
+    to a plain index endpoint. 
+    
+    app.add_url_rule(): 
+        *   Associates the endpoint name 'index' with the '/' url so that url_for('index') or url_for('blog.index') will 
+            both work, generating the same '/' URL either way. 
+    
+    In another application you might give the blog blueprint a url_prefix and define a separate index view in the 
+    application factory, similar to the hello view. Then the index and blog.index endpoints and URLs would be different. 
+    """
     app.add_url_rule('/', endpoint='index')
-
     print(" * Returning App")
     return app
