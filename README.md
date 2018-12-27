@@ -162,7 +162,15 @@ The base.html template already has a link to the style.css file:
 ``` 
 {{ url_for('static', filename='style.css') }}
 ``` 
-
 Besides CSS, other types of static files might be files with JavaScript functions, or a logo image. They are all 
 placed under the flask/static directory and referenced with url_for('static', filename=' ... ').
 
+### Blog Blueprint
+You will use the same techniques you learned about when writing the authentication blueprint to write the blog
+blueprint. The blog should list all posts, allow logged in users to create posts, and allow the author of a post
+to edit or delete it. 
+
+As you implement each view, keep the development server running. As you save your changes, try going to the URL 
+in your browser and testing them out. 
+
+###### The Blueprint
