@@ -13,16 +13,8 @@
     -->
     <form method="post">
         <label for="title">Title</label>
-        <input name="title" id="title"
-        value="{{ request.form['title'] or post['title'] }}" required>
-
+        <input name="title" id="title" value="{{ request.form['title'] or post['title'] }}" required>
         <label for="body">Body</label>
-        <!--
-            The pattern {{ request.form['title'] or post['title] }} is used to choose what data appears in the form.
-            When the form has not been submitted, the original post data appears, but if invalid form data was posted
-            you want to display that so the user can fix the error, so request.form is used instead.
-            request is another variable that is automatically available in templates.
-        -->
         <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
         <input type="submit" value="Save">
     </form>
