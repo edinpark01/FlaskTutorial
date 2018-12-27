@@ -66,8 +66,16 @@ def get_post(id, check_author=True):
     ).fetchone()
 
     if post is None:
+        # abort() will raise a special exception that returns an HTTP status code. It takes an optional message to show
+        # with the error, otherwise a default message is used.
+        #   404     -   not found
+        #   403     -   forbidden
+        #   401     -   unauthorized
         abort(404, 'Post id {0} does not exist.'.format(id))
 
+    # The check_author argument is defined so that the function can be used to get a post without checking the author.
+    # This would be useful if you wrote a view to show an individual post on a page, where the user does not matter
+    # beucase they are not modifying the post.
     if check_author and post['author_id'] != g.user['id']:
         abort(403)
 
