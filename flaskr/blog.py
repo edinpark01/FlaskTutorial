@@ -119,3 +119,13 @@ def update(id):
     return render_template('blog/update.html', post=post)
 
 
+# The delete view does not have its own template, the delete button is part of update.html and posts to the
+# /<id>/delete URL. Since there is no template, it will only handle the POST method then redirect to the index view.
+@bp.route('/<int:id>/delete', methods=('POST',))
+@login_required
+def delete(id):
+    get_post(id)
+    db = get_db()
+    db.execute('DELETE FROM post WHERE id = ?', (id,))
+    db.commit()
+    return redirect(url_for('blog.index'))
