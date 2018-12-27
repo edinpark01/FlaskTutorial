@@ -94,6 +94,7 @@ def create_app(test_config=None):
     print(" * Registering with application - blog Blueprint")
     from . import blog
     app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
 
     print(" * Returning App")
     return app
