@@ -55,3 +55,22 @@ def create():
         return render_template('blog/create.html')
 
 
+# Both the Update and Delete views will need to fetch a post by id and check if the author matched the logged in user.
+# To avoid duplicating code, you can write a function to get the post and call it from each view.
+def get_post(id, check_author=True):
+    post = get_db().execute(
+        'SELECT p.id, title, body, created, author_id, username '
+        'FROM post p JOIN user u ON p.author_id = u.id'
+        'WHERE p.id = ?',
+        (id,)
+    ).fetchone()
+
+    if post is None:
+        abort(404, 'Post id {0} does not exist.'.format(id))
+
+    if check_author and post['author_id'] != g.user['id']:
+        abort(403)
+
+    return post
+
+
