@@ -173,4 +173,23 @@ to edit or delete it.
 As you implement each view, keep the development server running. As you save your changes, try going to the URL 
 in your browser and testing them out. 
 
-###### The Blueprint
+### Make your project Installable
+Making your project installable means that you can build a distribution file and install that in another environment, 
+just like you installed Flask in your project’s environment. This makes deploying your project the same as installing 
+any other library, so you’re using all the standard Python tools to manage everything.
+
+Installing also comes with other benefits that might not be obvious from the tutorial or as a new Python user, 
+including:
+
+* Currently, Python and Flask understand how to use the flaskr package only because you’re running from your project’s 
+directory. Installing means you can import it no matter where you run from.
+* You can manage your project’s dependencies just like other packages do, so pip install yourproject.whl installs them.
+* Test tools can isolate your test environment from your development environment.
+
+<b>Note</b>
+
+This is being introduced late in the tutorial, but in your future projects you should always start with this.
+
+###### Describe the project
+The setup.py file describes your file and the files that belong to it.
+
