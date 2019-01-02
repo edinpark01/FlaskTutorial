@@ -206,3 +206,17 @@ global-exclude *.pyc
 
 This tells Python to copy everything in the static and templates directories, and the schema.sql file, but to 
 exclude all bytecode files.
+
+###### Install the Project
+Use <b>pip</b> to install your project in the virtual environment.
+
+```
+pip install -e
+```
+
+This tells pip to find setup.py in the current directory and install it in editable or development mode. 
+* <b>Editable mode</b> means that as you make changes to your local code, you’ll only need to re-install if you 
+change the metadata about the project, such as its dependencies.
+
+Nothing changes from how you’ve been running your project so far. FLASK_APP is still set to flaskr and flask run 
+still runs the application.
