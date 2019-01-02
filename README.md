@@ -193,3 +193,16 @@ This is being introduced late in the tutorial, but in your future projects you s
 ###### Describe the project
 The setup.py file describes your file and the files that belong to it.
 
+To include other files, such as the static and templates directories, include_package_data is set. 
+Python needs another file named MANIFEST.in to tell what this other data is.
+
+MANIFEST.in
+```
+include flaskr/schema.sql
+graft flaskr/static
+graft flaskr/templates
+global-exclude *.pyc
+```
+
+This tells Python to copy everything in the static and templates directories, and the schema.sql file, but to 
+exclude all bytecode files.
