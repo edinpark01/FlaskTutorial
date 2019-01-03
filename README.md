@@ -220,3 +220,16 @@ change the metadata about the project, such as its dependencies.
 
 Nothing changes from how you’ve been running your project so far. FLASK_APP is still set to flaskr and flask run 
 still runs the application.
+
+### Test Coverage
+Writing unit tests for your application lets you check that the code you wrote works the way you expect. Flask provides
+a test client that simulates requests to the application and returns the response data. 
+
+You should test as much of your code as possible. Code in functions only runs when the function is called, and code in 
+branches, such as if blocks, only runs if conditions is met. You want to make sure that each function is tested with 
+data that covers each branch. 
+
+You will use <b>pytest</b> and <b>coverage</b> to test and measure your code. Install them both:
+```
+pip install pytest coverage
+``` 
