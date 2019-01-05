@@ -233,3 +233,12 @@ You will use <b>pytest</b> and <b>coverage</b> to test and measure your code. In
 ```
 pip install pytest coverage
 ``` 
+
+###### Setup and fixtures
+The test code is located in the tests directory. This directory is next to the flaskr package, <b>not inside it</b>. 
+The tests/conftest.py file contains setup functions called fixtures that each test will used. Tests are in Python modules
+that start with test_, and each test function in those modules also starts with test_.
+
+Each test will create a new temporary database file and populate some data that will be used in the tests. Write a SQL
+file to insert that data. 
+
