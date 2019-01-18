@@ -61,6 +61,8 @@ There will now be a flaskr.sqlite file in the instance folder in your project.
 
 ### Blueprints and Views
 A view function is the code you write to respond to requests to your applications.
+<b>Another Definition</b> A view function, or view for short, is simply a Python function that takes a Web request and returns a Web response.
+
 * Flask uses patterns to match the incoming request URL to the view that should handle it. 
 * The view returns data that Flask turns into an outgoing response.
 * Flask can also go the other direction and generate a URL to a view based on its name and arguments.
